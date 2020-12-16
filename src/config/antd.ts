@@ -15,6 +15,7 @@ import {
   Popover,
   Tooltip,
   Table,
+  Tabs,
   Modal,
   Spin,
   List,
@@ -49,6 +50,7 @@ Vue.use(Select);
 Vue.use(Popover);
 Vue.use(Tooltip);
 Vue.use(Table);
+Vue.use(Tabs);
 Vue.use(Modal);
 Vue.use(Spin);
 Vue.use(List);

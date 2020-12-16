@@ -29,7 +29,7 @@
       }
 
       th {
-        @apply bg-transparent whitespace-nowrap;
+        @apply bg-transparent;
       }
     }
   }
@@ -38,5 +38,76 @@
   }
   .text-F07F80 {
     color: #F07F80;
+  }
+  .ant-tabs-bar {
+    @apply mb-0 border-b-0;
+  }
+  .ant-tabs-ink-bar {
+    background-color: #5458FB;
+    height: calc(100% - 10px);
+    bottom: 5px;
+    z-index: 1;
+
+    @apply rounded;
+  }
+
+  .ant-tabs-tab {
+    margin-right: 5px;
+    &:hover {
+      color: #5458FB !important;
+    }
+
+    &-active {
+      z-index: 2;
+
+      @apply text-white #{!important};
+
+      &:hover {
+        @apply text-white #{!important};
+      }
+    }
+
+    @apply font-bold mr-2 #{!important};
+  }
+
+  .ant-card-body {
+    @apply px-2 #{!important};
+
+    @screen md {
+      @apply px-6 #{!important};
+    }
+  }
+
+  .min-table {
+    tbody tr {
+      td:first-child {
+        vertical-align: top;
+
+        @apply py-2;
+      }
+      td:nth-child(2) {
+        @apply px-1;
+      }
+    }
+
+    thead tr th .ant-table-column-title {
+      @apply text-sm;
+    }
+
+    .ant-avatar {
+      @apply w-12 h-12;
+    }
+
+    .custom-gray-sm {
+      white-space: nowrap;
+      line-height: 21px;
+      font-size: 0.7rem;
+      @apply uppercase text-gray-500;
+    }
+
+    .progress-min > div {
+      line-height: 21px;
+      height: 21px;
+    }
   }
 }
