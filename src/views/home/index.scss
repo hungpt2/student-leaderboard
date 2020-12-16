@@ -8,4 +8,35 @@
   .el-loading-spinner svg {
     @apply mx-auto;
   }
+  table {
+    tbody tr {
+      td {
+        @apply border-b-2;
+      }
+      td:first-child {
+        @apply pr-0;
+      }
+      td:nth-child(2) {
+        @apply pl-1;
+      }
+      &:last-child td {
+        @apply border-b-0;
+      }
+    }
+    thead tr {
+      .ant-table-column-title {
+        @apply text-gray-500 uppercase;
+      }
+
+      th {
+        @apply bg-transparent whitespace-nowrap;
+      }
+    }
+  }
+  .text-14C8B1 {
+    color: #14C8B1;
+  }
+  .text-F07F80 {
+    color: #F07F80;
+  }
 }

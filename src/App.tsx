@@ -1,0 +1,14 @@
+import { Component, Vue } from "vue-property-decorator";
+
+@Component({
+  name: "app"
+})
+export default class App extends Vue {
+  protected render() {
+    return (
+      <div id="app">
+        <router-view />
+      </div>
+    );
+  }
+}

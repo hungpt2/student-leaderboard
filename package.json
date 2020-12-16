@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --port 8888",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.2",
+    "ant-design-vue": "^1.7.2",
     "autoprefixer": "^9",
     "babel-plugin-component": "^1.1.1",
     "core-js": "^3.6.5",

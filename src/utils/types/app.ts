@@ -7,4 +7,5 @@ export interface IStudent {
   totalHomework: number;
   didHomework: number;
   avgResult: number;
+  rank: number;
 }
