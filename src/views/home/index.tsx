@@ -35,7 +35,7 @@ export default class StudentsLeaderboard extends Vue {
               <div class="flex items-center justify-between">
                 <div>{value}</div>
                 {value <= 3 ? (
-                  <img class="w-5" src={`/img/cup_${value}.svg`} />
+                  <img class="w-3" src={`/img/cup_${value}.svg`} />
                 ) : null}
               </div>
             )
@@ -93,7 +93,7 @@ export default class StudentsLeaderboard extends Vue {
             align: "right",
             sorter: (a: IStudent, b: IStudent) => a.avgResult - b.avgResult,
             customRender: (value: string) => (
-              <div class={[Number(value) < 50 ? "text-F07F80" : "text-14C8B1"]}>
+              <div class={[Number(value) < 50 ? "text-EB5757" : "text-14C8B1"]}>
                 {value}%
               </div>
             )
@@ -156,7 +156,7 @@ export default class StudentsLeaderboard extends Vue {
                   <span class="font-bold">{record.didHomework}</span>
                   <span class="text-gray-400">/{value}</span>
                 </div>
-                <div class="text-14C8B1">{record.avgResult}%</div>
+                <div class={[Number(value) < 50 ? "text-EB5757" : "text-14C8B1"]}>{record.avgResult}%</div>
               </div>
             )
           }
@@ -176,7 +176,7 @@ export default class StudentsLeaderboard extends Vue {
 
   protected render() {
     return (
-      <section class="homepage p-2 md:p-10 w-screen h-screen overflow-auto bg-gray-200">
+      <section class="homepage p-2 md:p-10 w-screen h-screen overflow-auto bg-E5E5E5">
         <a-card class="box-card shadow-md">
           <div class="font-bold text-lg mb-4">Students Leaderboard</div>
           <div class="flex justify-between items-center flex-wrap">
@@ -190,7 +190,7 @@ export default class StudentsLeaderboard extends Vue {
             <div class="flex justify-between md:justify-end items-center w-full md:w-1/2 my-2">
               <div class="md:w-60 w-1/2 mr-1">
                 <a-input
-                  prefix={<a-icon type="search" />}
+                  prefix={<img class="w-3" src={`/img/search.svg`} />}
                   placeholder="Search Students"
                   class="w-full"
                 ></a-input>

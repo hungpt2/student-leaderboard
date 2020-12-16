@@ -5,6 +5,9 @@
   .bg-5458FB {
     background-color: #5458FB;
   }
+  .bg-E5E5E5 {
+    background-color: #E5E5E5;
+  }
   .el-loading-spinner svg {
     @apply mx-auto;
   }
@@ -14,7 +17,7 @@
         @apply border-b-2;
       }
       td:first-child {
-        @apply pr-0;
+        @apply pr-1;
       }
       td:nth-child(2) {
         @apply pl-1;
@@ -25,7 +28,8 @@
     }
     thead tr {
       .ant-table-column-title {
-        @apply text-gray-500 uppercase;
+        color: #9FA5B7;
+        @apply uppercase;
       }
 
       th {
@@ -36,8 +40,8 @@
   .text-14C8B1 {
     color: #14C8B1;
   }
-  .text-F07F80 {
-    color: #F07F80;
+  .text-EB5757 {
+    color: #EB5757;
   }
   .ant-tabs-bar {
     @apply mb-0 border-b-0;
@@ -51,8 +55,19 @@
     @apply rounded;
   }
 
+  .ant-select-selection,
+  .ant-select-selection__rendered,
+  .ant-input {
+    height: 2.75rem;
+    line-height: 2.75rem;
+  }
+
   .ant-tabs-tab {
     margin-right: 5px;
+
+    &::before {
+      display: none;
+    }
     &:hover {
       color: #5458FB !important;
     }
@@ -109,5 +124,9 @@
       line-height: 21px;
       height: 21px;
     }
+  }
+
+  .ant-progress-bg {
+    height: 0.35rem !important;
   }
 }
