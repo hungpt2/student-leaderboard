@@ -1,1 +1,11 @@
-.homepage {}
+.homepage {
+  .bg-E8F3F8 {
+    background-color: #E8F3F8;
+  }
+  .bg-5458FB {
+    background-color: #5458FB;
+  }
+  .el-loading-spinner svg {
+    @apply mx-auto;
+  }
+}

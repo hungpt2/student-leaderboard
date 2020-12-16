@@ -1,6 +1,6 @@
 //? README: https://tailwindcss.com/docs/configuration
 
-// const { colors } = require('tailwindcss/defaultTheme');
+const { colors } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   purge: {
@@ -21,6 +21,7 @@ module.exports = {
       }
     },
     container: {},
+    colors,
   },
   variants: {},
   plugins: [
