@@ -1,4 +1,6 @@
 .homepage {
+  font-family: 'Open Sans', sans-serif;
+
   .bg-E8F3F8 {
     background-color: #E8F3F8;
   }
@@ -36,6 +38,13 @@
         @apply bg-transparent;
       }
     }
+
+    // tr th:nth-child(2),
+    // tr td:nth-child(2),
+    // tr th:nth-child(2) .ant-table-header-column,
+    // tr td:nth-child(2) > div {
+    //   max-width: 200px;
+    // }
   }
   .text-14C8B1 {
     color: #14C8B1;
@@ -62,6 +71,13 @@
     line-height: 2.75rem;
   }
 
+  .ant-tabs-nav {
+    &-wrap,
+    &-container {
+      @apply mb-0;
+    }
+  }
+
   .ant-tabs-tab {
     margin-right: 5px;
 
@@ -82,7 +98,7 @@
       }
     }
 
-    @apply font-bold mr-2 #{!important};
+    @apply font-semibold mr-2 #{!important};
   }
 
   .ant-card-body {
