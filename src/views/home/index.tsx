@@ -1,6 +1,6 @@
 import { AppStore } from "@/store/modules/app";
 import { IStudent } from "@/utils/types/app";
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Watch } from "vue-property-decorator";
 import "./index.scss";
 
 export enum EStatus {
@@ -17,9 +17,7 @@ export default class StudentsLeaderboard extends Vue {
 
   private isLoading = true;
 
-  private get screenWidth() {
-    return window.innerWidth;
-  }
+  private screenWidth = window.innerWidth;
 
   private get columns() {
     return this.screenWidth > 768
@@ -35,7 +33,7 @@ export default class StudentsLeaderboard extends Vue {
               <div class="flex items-center justify-between">
                 <div>{value}</div>
                 {value <= 3 ? (
-                  <img class="w-3" src={`/img/cup_${value}.svg`} />
+                  <img class="w-4" src={`/img/cup_${value}.svg`} />
                 ) : null}
               </div>
             )
@@ -84,7 +82,7 @@ export default class StudentsLeaderboard extends Vue {
             customRender: (value: string, record: IStudent) => (
               <div>
                 <span class="font-semibold">{record.didHomework}</span>
-                <span class="text-gray-400">/{value}</span>
+                <span class="text-9FA5B7">/{value}</span>
               </div>
             )
           },
@@ -113,18 +111,18 @@ export default class StudentsLeaderboard extends Vue {
               <div class="flex justify-between">
                 <div>{value}</div>
                 <div>
+                  {value <= 3 ? (
+                    <img
+                      class="w-4 ml-8 mt-10 absolute z-20"
+                      src={`/img/cup_${value}.svg`}
+                    />
+                  ) : null}
                   <a-avatar
                     src={
                       "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
                     }
-                    class="border"
+                    class="border z-10"
                   />
-                  {value <= 3 ? (
-                    <img
-                      class="w-3 ml-auto -mt-3"
-                      src={`/img/cup_${value}.svg`}
-                    />
-                  ) : null}
                 </div>
               </div>
             )
@@ -139,7 +137,7 @@ export default class StudentsLeaderboard extends Vue {
                 <div>{value}</div>
                 <div>
                   <a-progress
-                    percent={value}
+                    percent={record.progress}
                     strokeColor={"#14C8B1"}
                     showInfo={false}
                     class="mb-1"
@@ -162,7 +160,7 @@ export default class StudentsLeaderboard extends Vue {
                 <div class="text-14C8B1">{value}%</div>
                 <div>
                   <span class="font-semibold">{record.didHomework}</span>
-                  <span class="text-gray-400">/{value}</span>
+                  <span class="text-9FA5B7">/{value}</span>
                 </div>
                 <div
                   class={[Number(value) < 50 ? "text-EB5757" : "text-14C8B1"]}
@@ -180,17 +178,26 @@ export default class StudentsLeaderboard extends Vue {
   }
 
   protected async mounted() {
+    window.addEventListener('resize', () => {
+      this.screenWidth = window.innerWidth;
+    });
     await AppStore.fetchListStudents();
     setTimeout(() => {
       this.isLoading = false;
     }, 1000);
   }
 
+  protected destroyed() {
+    window.removeEventListener('resize', () => {
+      this.screenWidth = window.innerWidth;
+    });
+  }
+
   protected render() {
     return (
       <section class="homepage p-2 md:p-10 w-screen h-screen overflow-auto bg-E5E5E5">
         <a-card class="box-card shadow-md">
-          <div class="font-semibold text-lg mb-4">Students Leaderboard</div>
+          <div class="font-semibold text-lg mb-4">Students Leaderboard {this.screenWidth}</div>
           <div class="flex justify-between items-center flex-wrap">
             <div class="px-1 flex justify-between items-center bg-E8F3F8 w-full md:w-auto text-center rounded my-2">
               <a-tabs>

@@ -10,6 +10,9 @@
   .bg-E5E5E5 {
     background-color: #E5E5E5;
   }
+  .text-9FA5B7 {
+    color: #9FA5B7;
+  }
   .el-loading-spinner svg {
     @apply mx-auto;
   }
@@ -144,5 +147,9 @@
 
   .ant-progress-bg {
     height: 0.35rem !important;
+  }
+  .ant-card,
+  .ant-table {
+    color: #222A3C;
   }
 }
